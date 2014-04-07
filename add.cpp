@@ -18,7 +18,17 @@ string add(string a, string b){
         total.insert(total.begin(), (sum % 10) + '0');
         sum /= 10;
     }
-    return total;
+    sum = 0;
+    int flag = 1;
+    while(total[sum] != '\0'){
+        if(total[sum] != '0'){
+            flag = 0;
+            break;
+        }
+        sum++;
+    }
+    if(flag) return "0";
+    else return total;
 }
 
 int main(){
@@ -37,7 +47,10 @@ int main(){
      * 0 -> failure not are the same the sum(a,b) with c
      */
     cout << (add(a, b).compare(c) == 0);
-    cout << (add("0", "0").compare("0") == 0);
+    cout << (add("000000", "0").compare("0") == 0);
+    cout << (add("0", "00000000").compare("0") == 0);
+    cout << (add("9", "0").compare("9") == 0);
+    cout << (add("0", "9").compare("9") == 0);
     cout << (add("789", "978945645").compare("978946434") == 0);
     cout << (add("1000000000000000000000000000000", "1").compare("1000000000000000000000000000001") == 0);
     cout << (add("99999999999", "1").compare("100000000000") == 0);
