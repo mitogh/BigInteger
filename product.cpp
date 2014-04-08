@@ -41,9 +41,9 @@ string add(string a, string b){
 string product(string a, string b){
     int len_a = a.size() - 1;
     int len_b = b.size() - 1;
-    string total = "";
-    string tmp;
     int tmp_s;
+    string total = "";
+    string tmp, result;
     if(len_a < len_b){
         tmp = b;
         b = a;
@@ -53,11 +53,7 @@ string product(string a, string b){
         len_a = tmp_s;
     }
 
-    int i = 0;
-    int r = 0;
-    int carry = 0;
-    int next = 0;
-    string result;
+    int i = 0, r = 0, carry = 0, next = 0;
     while(len_b >= 0){
         tmp_s = len_a;
         i = toDecimal(b[len_b]);
